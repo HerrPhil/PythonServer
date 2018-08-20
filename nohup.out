@@ -1,0 +1,78 @@
+start of log
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53912)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 313, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 344, in process_request
+    self.finish_request(request, client_address)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 357, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 717, in __init__
+    self.handle()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/server.py", line 426, in handle
+    self.handle_one_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/server.py", line 414, in handle_one_request
+    method()
+  File "fileserver.py", line 66, in do_POST
+    zlog = zipfile.ZipFile(io.BytesIO(rlog.content))
+NameError: name 'io' is not defined
+----------------------------------------
+INFO:__main__:start POSTing
+INFO:__main__:read content
+127.0.0.1 - - [19/Aug/2018 18:18:10] "POST / HTTP/1.1" 200 -
+INFO:__main__:make response
+INFO:__main__:b'http://localhost:8001/remote/log.zip'
+INFO:__main__:http://localhost:8001/remote/log.zip
+INFO:__main__:get the archive
+127.0.0.1 - - [19/Aug/2018 18:16:22] "GET /remote/log.zip HTTP/1.1" 200 -
+INFO:__main__:path is /remote/log.zip
+INFO:__main__:do remote get
+INFO:__main__:remote path is /remote/log.zip
+INFO:__main__:is the get archive successful
+INFO:__main__:True
+INFO:__main__:get the zip in memory
+Traceback (most recent call last):
+  File "fileserver.py", line 78, in <module>
+    httpd = HTTPServer(('localhost', sys.argv[1]), SimpleHTTPRequestHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 449, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 463, in server_bind
+    self.socket.bind(self.server_address)
+TypeError: an integer is required (got type str)
+Traceback (most recent call last):
+  File "fileserver.py", line 78, in <module>
+    httpd = HTTPServer(('localhost', sys.argv[1]), SimpleHTTPRequestHandler)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 449, in __init__
+    self.server_bind()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py", line 463, in server_bind
+    self.socket.bind(self.server_address)
+TypeError: an integer is required (got type str)
+INFO:__main__:start POSTing
+INFO:__main__:read content
+127.0.0.1 - - [19/Aug/2018 18:30:19] "POST / HTTP/1.1" 200 -
+INFO:__main__:make response
+INFO:__main__:b'http://localhost:8001/remote/log.zip'
+INFO:__main__:http://localhost:8001/remote/log.zip
+INFO:__main__:get the archive
+INFO:__main__:path is /remote/log.zip
+INFO:__main__:do remote get
+INFO:__main__:remote path is /remote/log.zip
+INFO:__main__:is the get archive successful
+INFO:__main__:True
+INFO:__main__:get the zip in memory
+INFO:__main__:extract the zip from memory to local
+INFO:__main__:close connections
+INFO:__main__:done extract
+INFO:__main__:path is /
+INFO:__main__:do default get
+127.0.0.1 - - [19/Aug/2018 18:30:19] "GET /remote/log.zip HTTP/1.1" 200 -
+INFO:__main__:path is /
+INFO:__main__:do default get
+127.0.0.1 - - [19/Aug/2018 18:35:34] "GET / HTTP/1.1" 200 -
+INFO:__main__:path is /favicon.ico
+INFO:__main__:do default get
